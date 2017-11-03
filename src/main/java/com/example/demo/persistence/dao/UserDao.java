@@ -13,7 +13,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.List;
 
-@Component
+
 @Service
 public class UserDao implements IUserDao {
 
@@ -22,9 +22,10 @@ public class UserDao implements IUserDao {
 
     @Override
     public List<User> searchUser(List<SearchCriteria> params) {
-        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
-        CriteriaQuery<User> query = builder.createQuery(User.class);
-        Root<User> r = query.from(User.class);
+
+        final CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        final CriteriaQuery<User> query = builder.createQuery(User.class);
+        final Root<User> r = query.from(User.class);
 
         Predicate predicate = builder.conjunction();
 

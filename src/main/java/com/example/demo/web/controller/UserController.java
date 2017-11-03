@@ -16,10 +16,14 @@ import java.util.regex.Pattern;
 @RestController
 public class UserController {
 
-    @Autowired
-    private IUserDao api;
+    private final IUserDao api;
 
-    @GetMapping("/users")
+    @Autowired
+    public UserController(IUserDao api) {
+        this.api = api;
+    }
+
+    @GetMapping("/users") //http://localhost:8080/users?search=lastName:Bozenka,age>25
     public List<User> findAll(@RequestParam(value = "search", required = false)String search){
         List<SearchCriteria> params = new ArrayList<SearchCriteria>();
         if(search != null) {
