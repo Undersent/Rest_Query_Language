@@ -1,6 +1,5 @@
 package com.example.demo.persistence.model;
 
-
 import lombok.*;
 
 import javax.persistence.Entity;
@@ -16,15 +15,17 @@ import javax.persistence.Id;
 @NoArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class User {
+public class MyUser {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
 
     private String firstName;
+
     private String lastName;
+
     private String email;
 
     private int age;
 }
-
